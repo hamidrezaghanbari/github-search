@@ -16,8 +16,7 @@ export const useGetRepo = () => {
     useQuery<TRepository>({
       queryKey: ["REPOSITORY", owner, repository],
       queryFn: () => httpRequest(getRepoUrl(owner, repository)),
-      // enabled: !!owner && !!repository,
-      enabled: false,
+      enabled: !!owner && !!repository,
       initialData: () => {
         const cacheValue = queryClient.getQueriesData({
           type: "active",

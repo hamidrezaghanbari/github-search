@@ -18,7 +18,6 @@ export const useGetRepos = () => {
     queryKey: ["REPO_LIST", userDebounceValue, page],
     queryFn: () => httpRequest(getSearchUrl(userDebounceValue, page)),
     enabled: !!userDebounceValue?.length && !!page,
-    // enabled: false,
   });
 
   return { repoList, repoListLoading, user, handleInputChange, page, setPage };
