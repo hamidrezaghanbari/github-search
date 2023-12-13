@@ -1,6 +1,6 @@
 import httpRequest from "@/services/http-request";
-import { TProject } from "@/types/requests";
-import { getUrl } from "@/utils";
+import { TRepository } from "@/types/requests";
+import { getSearchUrl } from "@/utils";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { useDebounce } from ".";
@@ -14,11 +14,11 @@ export const useGetRepos = () => {
     setValue: setUser,
   });
 
-  const { data: repoList, isLoading: repoListLoading } = useQuery({
+  const { data: repoList, isLoading: repoListLoading } = useQuery<Array<TRepository>>({
     queryKey: ["REPO_LIST", userDebounceValue, page],
-    queryFn: () => httpRequest<Array<TProject>>(getUrl(userDebounceValue, page)),
-    // enabled: !!userDebounceValue?.length && !!page,
-    enabled: false,
+    queryFn: () => httpRequest(getSearchUrl(userDebounceValue, page)),
+    enabled: !!userDebounceValue?.length && !!page,
+    // enabled: false,
   });
 
   return { repoList, repoListLoading, user, handleInputChange, page, setPage };

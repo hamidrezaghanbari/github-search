@@ -1,8 +1,8 @@
-import { TProject } from "@/types/requests";
+import { TRepository } from "@/types/requests";
 import { ResultItem } from "./item";
 
 type Props = {
-  list?: TProject[];
+  list?: TRepository[];
   loading: boolean;
 };
 

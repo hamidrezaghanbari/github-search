@@ -9,7 +9,7 @@ export interface TLicense {
   spdx_id: string;
 }
 
-export interface TProject {
+export interface TRepository {
   id: number;
   owner: TOwner;
   html_url: string;
