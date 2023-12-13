@@ -18,6 +18,7 @@ export interface TProject {
   language: string;
   stargazers_count: number;
   forks: number;
+  open_issues: number;
   license: TLicense;
   pushed_at: string;
   size: number;
